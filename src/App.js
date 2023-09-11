@@ -1,10 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Root from './components/Root';
+import Home from './components/Home';
+import Login from './components/Login';
+import Registration from './components/Registration';
 
 function App() {
+  const routes = createBrowserRouter([
+    {
+      path: '/',
+      element: <Root />,
+      children: [
+        {
+          path: '/',
+          element: <Home />
+        },
+        {
+          path: '/login',
+          element: <Login />
+        },
+        {
+          path: '/registration',
+          element: <Registration />
+        }
+      ]
+    }
+  ]);
   return (
     <div className="App">
-      <h1 className='text-3xl font-bold underline'>This is home.</h1>
+      <RouterProvider router={ routes } />
     </div>
   );
 }
