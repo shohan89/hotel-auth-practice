@@ -5,6 +5,8 @@ import Root from './components/Root';
 import Home from './components/Home';
 import Login from './components/Login';
 import Registration from './components/Registration';
+import Booking from './components/Booking';
+import PrivateRoute from './routes/PrivateRoute';
 
 function App() {
   const routes = createBrowserRouter([
@@ -15,6 +17,10 @@ function App() {
         {
           path: '/',
           element: <Home />
+        },
+        {
+          path: '/booking',
+          element: <PrivateRoute><Booking /></PrivateRoute>
         },
         {
           path: '/login',
